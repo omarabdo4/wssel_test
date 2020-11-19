@@ -38,7 +38,9 @@ class ShoptypeSeeder extends Seeder
         }
         $typesArrayDistinct = array_unique($typesArray);
         
+        \DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         Shoptype::truncate();
+        \DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
         foreach ($typesArrayDistinct as $type) {
             $shoptype = new Shoptype;
