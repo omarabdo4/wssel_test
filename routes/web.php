@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\CustomerController;
+use App\Mail\CustomerDetailsMail;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,4 @@ Route::get('/', function () {
 });
 
 Route::get('/customers',[CustomerController::class, 'index']);
+Route::post('/customers/{id}',[CustomerController::class, 'send']);

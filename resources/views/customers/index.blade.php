@@ -33,6 +33,11 @@
         <h4 class="card-title">All Customers</h4>
     </div>
     <div class="card-body">
+        @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
+        @endif
         @isset($customers)
             <table class="table table-striped">
                 <thead class="thead-dark">
