@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
+
+    public function shoptype()
+    {
+        return $this->belongsTo('App\Models\Shoptype', 'shoptype_id');
+    }
 }

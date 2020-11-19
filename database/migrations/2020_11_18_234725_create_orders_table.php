@@ -17,8 +17,8 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->timestamp('time');
             $table->float('amount', 8, 2);
-            $table->foreignId('shoptype_id');
-            $table->foreignId('customer_id');
+            $table->foreignId('shoptype_id')->constrained('shoptypes')->onDelete('cascade');
+            $table->foreignId('customer_id')->constrained('customers')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -30,6 +30,7 @@ class CreateOrdersTable extends Migration
      */
     public function down()
     {
+        $table->dropForeign(['shoptype_id','customer_id']);
         Schema::dropIfExists('orders');
     }
 }
