@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\CustomerController;
-use App\Mail\CustomerDetailsMail;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +22,9 @@ Route::get('/', function () {
 
 Route::get('/customers',[CustomerController::class, 'index']);
 Route::post('/customers/{id}',[CustomerController::class, 'send']);
+
+Route::get('/orders',[OrderController::class, 'index']);
+Route::delete('/orders/{order}',[OrderController::class, 'destroy']);
+Route::post('/orders/{id}',[OrderController::class, 'send']);
+Route::get('/orders/{order}',[OrderController::class, 'edit']);
+Route::put('/orders/{order}',[OrderController::class, 'update']);

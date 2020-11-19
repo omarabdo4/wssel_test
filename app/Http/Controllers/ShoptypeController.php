@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\CustomerDetailsMail;
-use App\Models\Customer;
+use App\Models\Shoptype;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
 
-class CustomerController extends Controller
+class ShoptypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,24 +14,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        return view('customers.index',[
-            'customers' => Customer::all()
-        ]);
-    }
-
-    /**
-     * Send a resource to it@wssel.com.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function send(Request $request, $id)
-    {
-        $customer = Customer::findOrFail($id);
-
-        Mail::to('it@wssel.com')->send(new CustomerDetailsMail($customer));
-        
-        return back()->with('status', 'Message Sent Successfully!');;
+        //
     }
 
     /**
@@ -60,10 +41,10 @@ class CustomerController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Customer  $customer
+     * @param  \App\Models\Shoptype  $shoptype
      * @return \Illuminate\Http\Response
      */
-    public function show(Customer $customer)
+    public function show(Shoptype $shoptype)
     {
         //
     }
@@ -71,10 +52,10 @@ class CustomerController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Customer  $customer
+     * @param  \App\Models\Shoptype  $shoptype
      * @return \Illuminate\Http\Response
      */
-    public function edit(Customer $customer)
+    public function edit(Shoptype $shoptype)
     {
         //
     }
@@ -83,10 +64,10 @@ class CustomerController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Customer  $customer
+     * @param  \App\Models\Shoptype  $shoptype
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Customer $customer)
+    public function update(Request $request, Shoptype $shoptype)
     {
         //
     }
@@ -94,10 +75,10 @@ class CustomerController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Customer  $customer
+     * @param  \App\Models\Shoptype  $shoptype
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Customer $customer)
+    public function destroy(Shoptype $shoptype)
     {
         //
     }

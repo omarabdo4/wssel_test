@@ -13,4 +13,10 @@ class Order extends Model
     {
         return $this->belongsTo('App\Models\Shoptype', 'shoptype_id');
     }
+
+    public function customer()
+    {
+        return $this->belongsTo('App\Models\Customer', 'customer_id');
+    }
+
 }
